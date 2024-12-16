@@ -67,6 +67,19 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
+                to={"/projects"}
+                onClick={() => setActiveLink("/projects")}
+                className={`block py-2 px-3 rounded bg-transparent ${
+                  activeLink === "/skills"
+                    ? "text-blue-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
+                }  p-0`}
+              >
+                Projects
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to={"/about"}
                 onClick={() => setActiveLink("/about")}
                 className={`block py-2 px-3 rounded bg-transparent ${
