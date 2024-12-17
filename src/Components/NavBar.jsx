@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ isDarkMode }) => {
   const [activeLink, setActiveLink] = useState("/");
   return (
-    <nav className="bg-white border border-gray-200">
+    <nav
+      className={`${
+        isDarkMode ? "bg-gray-900 text-white shadow-lg" : "bg-white"
+      } shadow-xl`}
+    >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3">
           <img src="../public/developer.png" className="h-8" alt="Developer" />
@@ -37,16 +41,26 @@ const NavBar = () => {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white text-xl">
+          <ul
+            className={`${
+              isDarkMode
+                ? "bg-gray-800 md:bg-gray-900 border-gray-700"
+                : "border-gray-100 bg-gray-50 "
+            }font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 text-xl `}
+          >
             <li>
               <NavLink
                 to={"/"}
                 onClick={() => setActiveLink("/")}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/"
-                    ? "text-blue-700"
-                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
-                }  p-0`}
+                    ? isDarkMode
+                      ? "text-white bg-blue-700"
+                      : "text-blue-700 bg-gray-100"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
+                }`}
                 aria-current="page"
               >
                 Home
@@ -58,9 +72,13 @@ const NavBar = () => {
                 onClick={() => setActiveLink("/skills")}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/skills"
-                    ? "text-blue-700"
-                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
-                }  p-0`}
+                    ? isDarkMode
+                      ? "text-white bg-blue-700"
+                      : "text-blue-700 bg-gray-100"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
+                } `}
               >
                 Skills
               </NavLink>
@@ -70,10 +88,14 @@ const NavBar = () => {
                 to={"/projects"}
                 onClick={() => setActiveLink("/projects")}
                 className={`block py-2 px-3 rounded bg-transparent ${
-                  activeLink === "/skills"
-                    ? "text-blue-700"
-                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
-                }  p-0`}
+                  activeLink === "/projects"
+                    ? isDarkMode
+                      ? "text-white bg-blue-700"
+                      : "text-blue-700 bg-gray-100"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
+                } `}
               >
                 Projects
               </NavLink>
@@ -84,9 +106,13 @@ const NavBar = () => {
                 onClick={() => setActiveLink("/about")}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/about"
-                    ? "text-blue-700"
-                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
-                }  p-0`}
+                    ? isDarkMode
+                      ? "text-white bg-blue-700"
+                      : "text-blue-700 bg-gray-100"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
+                } `}
               >
                 About
               </NavLink>
@@ -98,9 +124,13 @@ const NavBar = () => {
                 onClick={() => setActiveLink("/contact")}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/contact"
-                    ? "text-blue-700"
-                    : "text-gray-900 hover:bg-gray-100 hover:bg-transparent hover:text-blue-700"
-                }  p-0`}
+                    ? isDarkMode
+                      ? "text-white bg-blue-700"
+                      : "text-blue-700 bg-gray-100"
+                    : isDarkMode
+                    ? "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
+                } `}
               >
                 Contact
               </NavLink>
