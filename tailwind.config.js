@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       minHeight: {
-        "screen-minus-80": "calc(100vh - 77px)",
+        "screen-minus-80": "calc(100vh - 76px)",
       },
     },
   },

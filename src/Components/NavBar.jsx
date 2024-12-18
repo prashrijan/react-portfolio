@@ -11,7 +11,7 @@ const NavBar = ({ isDarkMode }) => {
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3">
-          <img src="../public/developer.png" className="h-8" alt="Developer" />
+          <img src="/developer.png" className="h-8" alt="Developer" />
           <span className="self-center text-xl md:text-2xl font-semibold whitespace-nowrap">
             Prashrijan | Software Developer
           </span>
