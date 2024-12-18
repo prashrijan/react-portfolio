@@ -20,24 +20,33 @@ function App() {
       >
         <NavBar isDarkMode={isDarkMode} />
         <DarkModeSwitch
-          style={{ margin: "2rem", position: "absolute" }}
+          style={{
+            position: "absolute",
+            top: "6rem",
+            right: "2rem",
+          }}
           checked={isDarkMode}
           onChange={toggleDarkMode}
           size={28}
         />
-        <Routes>
-          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
-          <Route path="/skills" element={<Skills isDarkMode={isDarkMode} />} />
-          <Route path="/about" element={<About isDarkMode={isDarkMode} />} />
-          <Route
-            path="/contact"
-            element={<Contact isDarkMode={isDarkMode} />}
-          />
-          <Route
-            path="/projects"
-            element={<Projects isDarkMode={isDarkMode} />}
-          />
-        </Routes>
+        <div className="mt-12">
+          <Routes>
+            <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
+            <Route
+              path="/skills"
+              element={<Skills isDarkMode={isDarkMode} />}
+            />
+            <Route path="/about" element={<About isDarkMode={isDarkMode} />} />
+            <Route
+              path="/contact"
+              element={<Contact isDarkMode={isDarkMode} />}
+            />
+            <Route
+              path="/projects"
+              element={<Projects isDarkMode={isDarkMode} />}
+            />
+          </Routes>
+        </div>
       </div>
     </>
   );

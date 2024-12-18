@@ -3,6 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = ({ isDarkMode }) => {
   const [activeLink, setActiveLink] = useState("/");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <nav
       className={`${
@@ -17,11 +21,11 @@ const NavBar = ({ isDarkMode }) => {
           </span>
         </a>
         <button
-          data-collapse-toggle="navbar-default"
+          onClick={toggleMenu}
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-default"
-          aria-expanded="false"
+          aria-expanded={isMenuOpen ? "true" : "false"}
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -40,13 +44,19 @@ const NavBar = ({ isDarkMode }) => {
             />
           </svg>
         </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } w-full md:block md:w-auto`}
+          id="navbar-default"
+        >
           <ul
             className={`${
               isDarkMode
                 ? "bg-gray-800 md:bg-gray-900 border-gray-700"
                 : "border-gray-100 bg-gray-50 "
-            }font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 text-xl `}
+            }font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 text-xl`}
           >
             <li>
               <NavLink
@@ -112,7 +122,7 @@ const NavBar = ({ isDarkMode }) => {
                     : isDarkMode
                     ? "text-gray-400 hover:text-white hover:bg-gray-700"
                     : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
-                } `}
+                }`}
               >
                 About
               </NavLink>
@@ -130,7 +140,7 @@ const NavBar = ({ isDarkMode }) => {
                     : isDarkMode
                     ? "text-gray-400 hover:text-white hover:bg-gray-700"
                     : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
-                } `}
+                }`}
               >
                 Contact
               </NavLink>
