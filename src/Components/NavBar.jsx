@@ -20,10 +20,12 @@ const NavBar = ({ isDarkMode }) => {
             Prashrijan | Software Developer
           </span>
         </a>
+
+        {/* Menu Button for small screens */}
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-default"
           aria-expanded={isMenuOpen ? "true" : "false"}
         >
@@ -45,18 +47,19 @@ const NavBar = ({ isDarkMode }) => {
           </svg>
         </button>
 
+        {/* Links */}
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } w-full md:block md:w-auto`}
+          } w-full lg:block lg:w-auto`}
           id="navbar-default"
         >
           <ul
             className={`${
               isDarkMode
-                ? "bg-gray-800 md:bg-gray-900 border-gray-700"
-                : "border-gray-100 bg-gray-50 "
-            }font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 text-xl`}
+                ? "bg-gray-800 lg:bg-gray-900 border-gray-700"
+                : "border-gray-100 bg-white"
+            } font-medium flex flex-col lg:flex-row p-4 lg:p-0 mt-4 lg:mt-0 border rounded-lg lg:border-0 lg:space-x-8 text-xl`}
           >
             <li>
               <NavLink
@@ -88,7 +91,7 @@ const NavBar = ({ isDarkMode }) => {
                     : isDarkMode
                     ? "text-gray-400 hover:text-white hover:bg-gray-700"
                     : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
-                } `}
+                }`}
               >
                 Skills
               </NavLink>
@@ -105,7 +108,7 @@ const NavBar = ({ isDarkMode }) => {
                     : isDarkMode
                     ? "text-gray-400 hover:text-white hover:bg-gray-700"
                     : "text-gray-900 hover:bg-gray-100 hover:text-blue-700"
-                } `}
+                }`}
               >
                 Projects
               </NavLink>
@@ -127,7 +130,6 @@ const NavBar = ({ isDarkMode }) => {
                 About
               </NavLink>
             </li>
-
             <li>
               <NavLink
                 to={"/contact"}

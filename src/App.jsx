@@ -22,14 +22,14 @@ function App() {
         <DarkModeSwitch
           style={{
             position: "absolute",
-            top: "6rem",
-            right: "2rem",
+            marginTop: "20px",
+            right: "50px",
           }}
           checked={isDarkMode}
           onChange={toggleDarkMode}
           size={28}
         />
-        <div className="mt-12">
+        <div className="px-2 py-4 sm:p-0">
           <Routes>
             <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
             <Route

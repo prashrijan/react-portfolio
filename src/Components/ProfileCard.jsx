@@ -38,10 +38,9 @@ const ProfileCard = ({ isDarkMode }) => {
                     isDarkMode ? "bg-gray-900" : "bg-yellow-300"
                   }`}
                 ></span>
-                <span className="relative"> Have a question? </span>
+                <span className="relative"> Have queries? </span>
               </span>
-              <br className="block sm:hidden" />
-              Ask me on{" "}
+              <br className="block sm:hidden" /> Ask on{" "}
               <a
                 href="https://www.linkedin.com/in/prashrijanshrestha/"
                 className={`transition-all duration-200 ${
@@ -60,7 +59,9 @@ const ProfileCard = ({ isDarkMode }) => {
               type="button"
               className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center mt-4 transition-all transform hover:scale-105 hover:rotate-3"
             >
-              Download CV <i className="ri-download-line text-lg"></i>
+              <a href="/FrontendResumeDraft2.pdf" download="Prashrijan_CV.pdf">
+                Download CV <i className="ri-download-line text-lg"></i>
+              </a>
             </button>
           </div>
 
