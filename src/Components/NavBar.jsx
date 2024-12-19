@@ -11,12 +11,12 @@ const NavBar = ({ isDarkMode }) => {
     <nav
       className={`${
         isDarkMode ? "bg-gray-900 text-white shadow-lg" : "bg-white"
-      } shadow-xl`}
+      } shadow-sm md:shadow-xl`}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3">
           <img src="/developer.png" className="h-8" alt="Developer" />
-          <span className="self-center text-xl md:text-2xl font-semibold whitespace-nowrap">
+          <span className="self-center text-lg md:text-2xl font-semibold whitespace-nowrap">
             Prashrijan | Software Developer
           </span>
         </a>
@@ -64,7 +64,10 @@ const NavBar = ({ isDarkMode }) => {
             <li>
               <NavLink
                 to={"/"}
-                onClick={() => setActiveLink("/")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setActiveLink("/");
+                }}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/"
                     ? isDarkMode
@@ -82,7 +85,10 @@ const NavBar = ({ isDarkMode }) => {
             <li>
               <NavLink
                 to={"/skills"}
-                onClick={() => setActiveLink("/skills")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setActiveLink("/skills");
+                }}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/skills"
                     ? isDarkMode
@@ -99,7 +105,10 @@ const NavBar = ({ isDarkMode }) => {
             <li>
               <NavLink
                 to={"/projects"}
-                onClick={() => setActiveLink("/projects")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setActiveLink("/projects");
+                }}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/projects"
                     ? isDarkMode
@@ -116,7 +125,10 @@ const NavBar = ({ isDarkMode }) => {
             <li>
               <NavLink
                 to={"/about"}
-                onClick={() => setActiveLink("/about")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setActiveLink("/about");
+                }}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/about"
                     ? isDarkMode
@@ -133,7 +145,10 @@ const NavBar = ({ isDarkMode }) => {
             <li>
               <NavLink
                 to={"/contact"}
-                onClick={() => setActiveLink("/contact")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setActiveLink("/contact");
+                }}
                 className={`block py-2 px-3 rounded bg-transparent ${
                   activeLink === "/contact"
                     ? isDarkMode
