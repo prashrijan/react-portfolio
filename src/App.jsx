@@ -23,7 +23,7 @@ function App() {
           style={{
             position: "absolute",
             marginTop: "20px",
-            right: "50px",
+            right: "20px",
           }}
           checked={isDarkMode}
           onChange={toggleDarkMode}
