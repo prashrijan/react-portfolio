@@ -6,7 +6,7 @@ const Home = ({ isDarkMode }) => {
     <div
       className={`${
         isDarkMode ? "bg-slate-800 text-white" : "bg-gray-100 text-black"
-      } min-h-screen-minus-80 flex items-center justify-center px-5 sm:px-0`}
+      } min-h-screen-minus-80 flex items-center justify-center p-5 sm:p-0`}
     >
       <ProfileCard isDarkMode={isDarkMode} />
     </div>
