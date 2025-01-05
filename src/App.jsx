@@ -29,7 +29,7 @@ function App() {
           onChange={toggleDarkMode}
           size={28}
         />
-        <div className="p-4 sm:p-0">
+        <div className="p-0">
           <Routes>
             <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
             <Route
