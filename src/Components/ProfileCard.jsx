@@ -20,7 +20,7 @@ const ProfileCard = ({ isDarkMode }) => {
             <p
               className={`max-w-lg mt-3 text-xl leading-relaxed ${
                 isDarkMode ? "text-gray-300" : "text-gray-600"
-              } md:mt-8`}
+              } md:mt-8 text-justify`}
             >
               Web Developer with a strong focus on creating seamless and
               intuitive user experiences. Eager to contribute to innovative
