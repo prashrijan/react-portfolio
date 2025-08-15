@@ -1,141 +1,205 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import SkillsCard from "./SkillsCard";
+import {
+    frontendSkills,
+    backendSkills,
+    databaseSkills,
+} from "../Assets/assets";
 
-const frontendSkills = [
-  {
-    languageName: "HTML5",
-    imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIxeNFO8PSlvOvudmrtLIOYdTpN6o77VKolQ&s",
-  },
-  {
-    languageName: "CSS3",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/1024px-Official_CSS_Logo.svg.png",
-  },
-  {
-    languageName: "JavaScript",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png",
-  },
-  {
-    languageName: "React",
-    imgSrc:
-      "https://static-00.iconduck.com/assets.00/react-icon-512x512-u6e60ayf.png",
-  },
-  {
-    languageName: "Tailwind CSS",
-    imgSrc:
-      "https://user-images.githubusercontent.com/98990/89711240-4172a200-d989-11ea-8d51-4aaf922fa407.png",
-  },
+const TABS = [
+    { key: "All", label: "All Skills" },
+    { key: "frontend", label: "Frontend" },
+    { key: "backend", label: "Backend" },
+    { key: "database", label: "Database" },
 ];
 
-const backendSkills = [
-  {
-    languageName: "Node.js",
-    imgSrc:
-      "https://ih1.redbubble.net/image.1637718590.1604/st,small,507x507-pad,600x600,f8f8f8.jpg",
-  },
-  {
-    languageName: "Express.js",
-    imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnDneBGnQL7E9hZDwztRO1GfQcCj1FqRrhBw&s",
-  },
-  {
-    languageName: "MongoDB",
-    imgSrc:
-      "https://coursera-university-assets.s3.amazonaws.com/05/353594a7964fdeaff4e10615de58c0/MongoDBSquareLogo.png",
-  },
-];
+export default function Skills({ isDarkMode }) {
+    const allSkills = useMemo(
+        () => [...frontendSkills, ...backendSkills, ...databaseSkills],
+        []
+    );
 
-const Skills = ({ isDarkMode }) => {
-  const [skills, setSkills] = useState([...frontendSkills, ...backendSkills]);
-  const [activeLink, setActiveLink] = useState("All");
+    const [activeTab, setActiveTab] = useState("All");
+    const [query, setQuery] = useState("");
 
-  return (
-    <div
-      className={`w-full flex flex-col items-center justify-center min-h-screen-minus-80 ${
-        isDarkMode ? "bg-gray-800" : "bg-gray-100"
-      }`}
-    >
-      <h2
-        className={`text-3xl font-bold mt-4 ${
-          isDarkMode ? "text-white" : "text-gray-800"
-        }`}
-      >
-        My Skills
-      </h2>
+    // counts for the pills
+    const counts = {
+        All: allSkills.length,
+        frontend: frontendSkills.length,
+        backend: backendSkills.length,
+        database: databaseSkills.length,
+    };
 
-      {/* Categories */}
-      <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
-        {/* All Skills Button */}
-        <button
-          type="button"
-          onClick={() => {
-            setActiveLink("All");
-            setSkills([...frontendSkills, ...backendSkills]);
-          }}
-          className={`${
-            activeLink === "All"
-              ? isDarkMode
-                ? "text-blue-300 hover:text-white border border-blue-500 bg-gray-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800"
-                : "text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
-              : isDarkMode
-              ? "text-gray-400 border border-gray-700 hover:border-gray-500 bg-gray-800 focus:ring-4 focus:ring-gray-600"
-              : "text-gray-900 border border-white hover:border-gray-200 bg-white focus:ring-4 focus:ring-gray-300"
-          } rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3`}
+    const sourceByTab = {
+        All: allSkills,
+        frontend: frontendSkills,
+        backend: backendSkills,
+        database: databaseSkills,
+    };
+
+    // filter by tab + search query
+    const filteredSkills = useMemo(() => {
+        const base = sourceByTab[activeTab] || [];
+        if (!query.trim()) return base;
+        const q = query.toLowerCase();
+        return base.filter((s) =>
+            (s.languageName || "").toLowerCase().includes(q)
+        );
+    }, [activeTab, query]);
+
+    return (
+        <section
+            className={`min-h-screen-minus-80 w-full ${
+                isDarkMode
+                    ? "bg-gray-900 text-white"
+                    : "bg-gray-50 text-gray-900"
+            }`}
         >
-          All Skills
-        </button>
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+                {/* Header */}
+                <header className="flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                        <p
+                            className={`text-xs uppercase tracking-widest ${
+                                isDarkMode ? "text-slate-400" : "text-slate-500"
+                            }`}
+                        >
+                            Toolbox
+                        </p>
+                        <h2 className="text-3xl font-extrabold sm:text-4xl">
+                            My Skills
+                        </h2>
+                        <p
+                            className={`mt-2 text-sm ${
+                                isDarkMode ? "text-slate-300" : "text-slate-600"
+                            }`}
+                        >
+                            Filter by area or search directly. Hover a card for
+                            a little sparkle ✨
+                        </p>
+                    </div>
 
-        {/* Frontend Button */}
-        <button
-          type="button"
-          onClick={() => {
-            setActiveLink("frontend");
-            setSkills([...frontendSkills]);
-          }}
-          className={`${
-            activeLink === "frontend"
-              ? isDarkMode
-                ? "text-blue-300 hover:text-white border border-blue-500 bg-gray-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800"
-                : "text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
-              : isDarkMode
-              ? "text-gray-400 border border-gray-700 hover:border-gray-500 bg-gray-800 focus:ring-4 focus:ring-gray-600"
-              : "text-gray-900 border border-white hover:border-gray-200 bg-white focus:ring-4 focus:ring-gray-300"
-          } rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3`}
-        >
-          Frontend
-        </button>
+                    {/* Search */}
+                    <div className="w-full sm:w-80">
+                        <div
+                            className={`flex items-center gap-2 rounded-2xl ring-1 px-3 py-2 ${
+                                isDarkMode
+                                    ? "bg-gray-800 ring-gray-700"
+                                    : "bg-white ring-gray-200"
+                            }`}
+                        >
+                            <svg
+                                className={`h-4 w-4 ${
+                                    isDarkMode
+                                        ? "text-slate-400"
+                                        : "text-slate-500"
+                                }`}
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path d="M10 4a6 6 0 1 1-3.973 10.485l-2.77 2.77-1.414-1.414 2.77-2.77A6 6 0 0 1 10 4Zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+                            </svg>
+                            <input
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                placeholder="Search skills…"
+                                className={`w-full bg-transparent outline-none text-sm ${
+                                    isDarkMode
+                                        ? "placeholder:text-slate-500"
+                                        : "placeholder:text-slate-400"
+                                }`}
+                            />
+                            {query && (
+                                <button
+                                    onClick={() => setQuery("")}
+                                    className={`rounded-md px-2 py-1 text-xs ${
+                                        isDarkMode
+                                            ? "bg-gray-700 text-slate-200 hover:bg-gray-600"
+                                            : "bg-gray-100 text-slate-700 hover:bg-gray-200"
+                                    }`}
+                                >
+                                    Clear
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </header>
 
-        {/* Backend Button */}
-        <button
-          type="button"
-          onClick={() => {
-            setActiveLink("backend");
-            setSkills([...backendSkills]);
-          }}
-          className={`${
-            activeLink === "backend"
-              ? isDarkMode
-                ? "text-blue-300 hover:text-white border border-blue-500 bg-gray-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800"
-                : "text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
-              : isDarkMode
-              ? "text-gray-400 border border-gray-700 hover:border-gray-500 bg-gray-800 focus:ring-4 focus:ring-gray-600"
-              : "text-gray-900 border border-white hover:border-gray-200 bg-white focus:ring-4 focus:ring-gray-300"
-          } rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3`}
-        >
-          Backend
-        </button>
-      </div>
+                {/* Filters */}
+                <div className="sticky top-16 z-10 mt-6">
+                    <div className="flex flex-wrap items-center gap-2">
+                        {TABS.map((t) => {
+                            const active = activeTab === t.key;
+                            return (
+                                <button
+                                    key={t.key}
+                                    type="button"
+                                    aria-pressed={active}
+                                    onClick={() => setActiveTab(t.key)}
+                                    className={[
+                                        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium ring-1 transition",
+                                        active
+                                            ? isDarkMode
+                                                ? "bg-blue-600 text-white ring-blue-500"
+                                                : "bg-blue-600 text-white ring-blue-600"
+                                            : isDarkMode
+                                            ? "bg-gray-800 text-slate-200 ring-gray-700 hover:bg-gray-700"
+                                            : "bg-white text-slate-800 ring-gray-200 hover:bg-gray-50",
+                                    ].join(" ")}
+                                >
+                                    {t.label}
+                                    <span
+                                        className={[
+                                            "rounded-full px-2 py-0.5 text-[11px] font-semibold",
+                                            active
+                                                ? isDarkMode
+                                                    ? "bg-white/20"
+                                                    : "bg-white/20"
+                                                : isDarkMode
+                                                ? "bg-gray-700"
+                                                : "bg-gray-100",
+                                        ].join(" ")}
+                                    >
+                                        {counts[t.key]}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {skills.map((skill) => {
-          return <SkillsCard skill={skill} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-export default Skills;
+                {/* Grid */}
+                <div className="mt-8">
+                    {filteredSkills.length === 0 ? (
+                        <div
+                            className={`rounded-2xl p-8 text-center ring-1 ${
+                                isDarkMode
+                                    ? "bg-gray-800 ring-gray-700"
+                                    : "bg-white ring-gray-200"
+                            }`}
+                        >
+                            <p className="text-sm opacity-80">
+                                No results for{" "}
+                                <span className="font-semibold">“{query}”</span>
+                                . Try another term.
+                            </p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+                            {filteredSkills.map((skill, idx) => (
+                                <SkillsCard
+                                    key={`${
+                                        skill.languageName || "skill"
+                                    }-${idx}`}
+                                    skill={skill}
+                                    isDarkMode={isDarkMode}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </section>
+    );
+}
