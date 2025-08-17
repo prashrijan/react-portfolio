@@ -15,27 +15,29 @@ function App() {
 
     return (
         <>
-            <NavBar isDarkMode={isDarkMode} />
+            <div className="">
+                <NavBar isDarkMode={isDarkMode} />
 
-            {/* Floating dark-mode switch (no layout space, always on top) */}
-            {/* Floating dark-mode switch */}
-            <div className="fixed top-4 right-4 z-[9999] pointer-events-none">
-                <div
-                    className={`rounded-full px-2 py-2 backdrop-blur ring-1 pointer-events-auto
+                {/* Floating dark-mode switch (no layout space, always on top) */}
+                {/* Floating dark-mode switch */}
+                <div className="fixed top-4 right-4 z-[9999] pointer-events-none">
+                    <div
+                        className={`rounded-full px-2 py-2 backdrop-blur ring-1 pointer-events-auto
       ${
           isDarkMode
               ? "bg-white/10 ring-white/20"
               : "bg-white/80 ring-slate-200"
       }`}
-                >
-                    <DarkModeSwitch
-                        checked={isDarkMode}
-                        onChange={setIsDarkMode}
-                        size={28}
-                        moonColor={isDarkMode ? "#FDE68A" : "#334155"}
-                        sunColor={isDarkMode ? "#F59E0B" : "#0EA5E9"}
-                        aria-label="Toggle dark mode"
-                    />
+                    >
+                        <DarkModeSwitch
+                            checked={isDarkMode}
+                            onChange={setIsDarkMode}
+                            size={24}
+                            moonColor={isDarkMode ? "#FDE68A" : "#334155"}
+                            sunColor={isDarkMode ? "#F59E0B" : "#0EA5E9"}
+                            aria-label="Toggle dark mode"
+                        />
+                    </div>
                 </div>
             </div>
 

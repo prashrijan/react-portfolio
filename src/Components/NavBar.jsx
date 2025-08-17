@@ -16,7 +16,7 @@ const NavBar = ({ isDarkMode }) => {
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center space-x-3">
                     <img src="/developer.png" className="h-8" alt="Developer" />
-                    <span className="self-center text-lg md:text-xl font-semibold whitespace-nowrap">
+                    <span className="self-center text-sm md:text-xl font-semibold whitespace-nowrap">
                         Prashrijan | Software Developer
                     </span>
                 </a>
@@ -25,7 +25,7 @@ const NavBar = ({ isDarkMode }) => {
                 <button
                     onClick={toggleMenu}
                     type="button"
-                    className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2
+                    className={`inline-flex items-center p-2 w-8 h-8 justify-center text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2
     ${
         isDarkMode
             ? "text-gray-200 hover:bg-gray-800 focus:ring-gray-700"
