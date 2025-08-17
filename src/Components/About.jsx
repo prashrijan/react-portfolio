@@ -210,14 +210,10 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
                         eyebrow="Snapshot"
                     >
                         <div className="grid grid-cols-3 gap-3 max-w-md">
-                            <Stat
-                                k="Projects"
-                                v="12+"
-                                isDarkMode={isDarkMode}
-                            />
+                            <Stat k="Projects" v="5+" isDarkMode={isDarkMode} />
                             <Stat
                                 k="Experience"
-                                v="3+ yrs"
+                                v="1+ yrs"
                                 isDarkMode={isDarkMode}
                             />
                             <Stat
@@ -239,18 +235,13 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
                             items={[
                                 {
                                     year: "2025",
-                                    title: "Chunaab v2 — Next.js Rebuild",
-                                    desc: "SSR, cleaner DX, real-time dashboards, better SEO.",
+                                    title: "Chunaab.com — Online Voting Platform",
+                                    desc: "Secure, scalable e-voting with live dashboards, PDF results, and role-based access.",
                                 },
                                 {
                                     year: "2024",
-                                    title: "Capstone: Chunaab v1 (MERN)",
-                                    desc: "Role-based voting, PDF results, live charts, Stripe.",
-                                },
-                                {
-                                    year: "2023",
-                                    title: "Frontend deep dive",
-                                    desc: "Design systems, accessibility, performance budgets.",
+                                    title: "Financial Tracker",
+                                    desc: "MERN web app where users can track their income and expenses.",
                                 },
                             ]}
                         />
