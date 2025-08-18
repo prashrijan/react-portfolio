@@ -20,7 +20,7 @@ function App() {
 
                 {/* Floating dark-mode switch (no layout space, always on top) */}
                 {/* Floating dark-mode switch */}
-                <div className="fixed top-4 right-4 z-[9999] pointer-events-none">
+                <div className="fixed top-24 right-4 z-[9999] pointer-events-none">
                     <div
                         className={`rounded-full px-2 py-2 backdrop-blur ring-1 pointer-events-auto
       ${

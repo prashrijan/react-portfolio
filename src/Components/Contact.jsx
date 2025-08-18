@@ -127,7 +127,7 @@ export default function Contact({ isDarkMode }) {
                 isDarkMode
                     ? "bg-gray-950 text-white"
                     : "bg-gray-50 text-gray-900"
-            } min-h-screen-minus-80 py-14 px-4 sm:px-6 lg:px-8`}
+            } min-h-screen-minus-80 md:py-32 px-4 sm:px-6 lg:px-8 py-14`}
         >
             {/* subtle background accents */}
             <div
@@ -166,16 +166,17 @@ export default function Contact({ isDarkMode }) {
 
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <InfoCard isDarkMode={isDarkMode} label="Email">
-                            <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
                                 <a
-                                    className="underline underline-offset-4"
+                                    className="flex-1 min-w-0 truncate underline underline-offset-4"
                                     href={`mailto:${CONTACT_EMAIL}`}
+                                    title={CONTACT_EMAIL}
                                 >
                                     {CONTACT_EMAIL}
                                 </a>
                                 <button
                                     onClick={copyEmail}
-                                    className={`rounded-md px-2 py-1 text-xs ${
+                                    className={`shrink-0 rounded-md px-2 py-1 text-xs ${
                                         isDarkMode
                                             ? "bg-gray-800 hover:bg-gray-700"
                                             : "bg-gray-100 hover:bg-gray-200"

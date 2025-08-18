@@ -16,7 +16,7 @@ const NavBar = ({ isDarkMode }) => {
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center space-x-3">
                     <img src="/developer.png" className="h-8" alt="Developer" />
-                    <span className="self-center text-sm md:text-xl font-semibold whitespace-nowrap">
+                    <span className="self-center text-md md:text-xl font-semibold whitespace-nowrap">
                         Prashrijan | Software Developer
                     </span>
                 </a>
@@ -30,7 +30,7 @@ const NavBar = ({ isDarkMode }) => {
         isDarkMode
             ? "text-gray-200 hover:bg-gray-800 focus:ring-gray-700"
             : "text-gray-600 hover:bg-gray-100 focus:ring-gray-200"
-    } mr-14`} // <-- reserves space for the floating switch
+    } `}
                     aria-controls="navbar-default"
                     aria-expanded={isMenuOpen ? "true" : "false"}
                 >
