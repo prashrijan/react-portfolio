@@ -8,7 +8,7 @@ const Home = ({ isDarkMode }) => {
                 isDarkMode
                     ? "bg-slate-800 text-white"
                     : "bg-gray-100 text-black"
-            }`}
+            } `}
         >
             <ProfileCard isDarkMode={isDarkMode} />
         </div>

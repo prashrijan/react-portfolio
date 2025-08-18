@@ -18,7 +18,7 @@ export default function ProfileCard({
                 isDarkMode
                     ? "bg-slate-800 text-white"
                     : "bg-gray-100 text-gray-900"
-            } w-full min-h-screen-minus-80`}
+            } w-full min-h-screen-minus-80 py-4 px-4 md:py-10 md:px-0`}
         >
             {/* angled gradient slashes for a distinct vibe */}
             <div
@@ -71,8 +71,8 @@ export default function ProfileCard({
                                 isDarkMode ? "text-gray-300" : "text-gray-600"
                             }`}
                         >
-                            Frontend developer who ships crisp UI and smooth UX.
-                            I build accessible, fast interfaces with clean
+                            Full Stack developer who ships crisp UI and smooth
+                            UX. I build accessible, fast interfaces with clean
                             component architecture and zero drama in production.
                         </p>
 
@@ -257,7 +257,7 @@ export default function ProfileCard({
 
                                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                                     <span className="rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur">
-                                        Frontend Developer
+                                        Full Stack Developer
                                     </span>
                                     <span
                                         className={`rounded-full px-3 py-1 text-xs font-medium backdrop-blur ${

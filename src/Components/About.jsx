@@ -58,7 +58,7 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
                                         : "text-slate-600"
                                 }`}
                             >
-                                Frontend Developer
+                                Full Stack Developer
                             </p>
 
                             <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -73,7 +73,7 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
 
                             <div className="mt-6 flex w-full flex-col gap-2 sm:flex-row">
                                 <a
-                                    href="/Prashrijan_Shrestha_CV.pdf"
+                                    href="/Prashrijan_CV.pdf"
                                     download
                                     className={`flex-1 rounded-xl px-4 py-2 text-center text-sm font-medium transition
                     ${
@@ -85,7 +85,7 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
                                     Download CV
                                 </a>
                                 <a
-                                    href="#contact"
+                                    href="/contact"
                                     className={`flex-1 rounded-xl border px-4 py-2 text-center text-sm font-medium transition
                     ${
                         isDarkMode
@@ -164,11 +164,12 @@ export default function About({ isDarkMode, photoUrl = "/profile.png" }) {
                             <span className="font-semibold">
                                 Prashrijan Shrestha
                             </span>
-                            , a frontend developer who ships clean UI and smooth
-                            UX. I design websites that are not just good-looking
-                            but also intuitive, accessible, and fast. With every
-                            line of code, I’m aiming for fewer clicks, clearer
-                            intent, and zero surprises in production.
+                            , a fullstack developer who ships clean UI and
+                            smooth UX. I design websites that are not just
+                            good-looking but also intuitive, accessible, and
+                            fast. With every line of code, I’m aiming for fewer
+                            clicks, clearer intent, and zero surprises in
+                            production.
                         </p>
                     </Section>
 
