@@ -2,23 +2,7 @@ import React, { useMemo } from "react";
 import { SocialButton } from "../Helpers/SocialButton";
 import { Ticker } from "../Helpers/Ticker";
 import { TiltCard } from "../Helpers/TiltCard";
-
-const skillsDefault = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind",
-    "Node.js",
-    "MongoDB",
-    "Firebase",
-    "UI/UX",
-];
-
-const statsDefault = [
-    { label: "Projects", value: "5+" },
-    { label: "Experience", value: "1+ yr" },
-    { label: "Response", value: "<24h" },
-];
+import { skillsDefault, statsDefault } from "../Assets/assets";
 
 export default function ProfileCard({
     isDarkMode,

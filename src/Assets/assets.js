@@ -15,9 +15,14 @@ export const frontendSkills = [
         languageName: "React",
         imgSrc: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-svg-vector.svg",
     },
+
     {
         languageName: "Tailwind CSS",
         imgSrc: "https://user-images.githubusercontent.com/98990/89711240-4172a200-d989-11ea-8d51-4aaf922fa407.png",
+    },
+    {
+        languageName: "Bootstrap",
+        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
     },
 ];
 
@@ -64,4 +69,20 @@ export const projects = [
         githubUrl: "https://github.com/prashrijan/finance-tracker-frontend",
         year: "2024",
     },
+];
+
+export const skillsDefault = [
+    "React",
+    "TypeScript",
+    "Tailwind",
+    "Bootstrap",
+    "Node.js",
+    "MongoDB",
+    "UI/UX",
+];
+
+export const statsDefault = [
+    { label: "Projects", value: "5+" },
+    { label: "Experience", value: "1+ yr" },
+    { label: "Response", value: "<24h" },
 ];
